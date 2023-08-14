@@ -1,6 +1,6 @@
 {
   "name": "cloud-castle/xml-service",
-  "description": "Библиотека для легкой генерации XML файлов",
+  "description": "Библиотека для легкой работы с XML файлами",
   "minimum-stability": "stable",
   "license": "MIT",
   "authors": [
@@ -11,12 +11,14 @@
   ],
   "autoload": {
     "psr-4": {
-      "CloudCastle\\Xml\\": "src/Xml/"
+      "CloudCastle\\Xml\\Exceptions\\": "src/Xml/Exceptions/",
+      "CloudCastle\\Xml\\Exceptions\\Generator\\": "src/Xml/Generator/",
+      "CloudCastle\\Xml\\Interfaces\\": "src/Xml/Interfaces/"
     }
   },
   "require": {
     "php": "^8.2",
     "ext-xmlwriter": "*",
-    "cloud-castle/file-system": "^1.0.0.1"
+    "cloud-castle/storage": "^1.0.0.1"
   }
 }

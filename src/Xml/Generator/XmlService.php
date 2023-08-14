@@ -2,7 +2,8 @@
 
 namespace CloudCastle\Xml\Generator;
 
-use CloudCastle\FileSystem\Storage;
+use CloudCastle\Storage\DisksEnum;
+use CloudCastle\Storage\Storage;
 use CloudCastle\Xml\Exceptions\Generator\XmlServiceException;
 use CloudCastle\Xml\Interfaces\XmlServiceInterface;
 use XMLWriter;
@@ -143,8 +144,10 @@ final class XmlService implements XmlServiceInterface
      */
     public function save(string $file): string
     {
-        if (Storage::disk('local')->put($file, $this->get())) {
-            return Storage::disk('local')->path($file);
+        $disk = DisksEnum::LOCAL;
+
+        if (Storage::disk($disk)->put($file, $this->get())) {
+            return Storage::disk($disk)->path($file);
         }
 
         throw new XmlServiceException('Не удалось записать данные в файл "' . $file.'"');
