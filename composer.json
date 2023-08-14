@@ -11,9 +11,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "CloudCastle\\Xml\\Exceptions\\": "src/Xml/Exceptions/",
-      "CloudCastle\\Xml\\Exceptions\\Generator\\": "src/Xml/Generator/",
-      "CloudCastle\\Xml\\Interfaces\\": "src/Xml/Interfaces/"
+      "CloudCastle\\Xml\\": "src/"
     }
   },
   "require": {
