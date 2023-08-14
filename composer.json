@@ -16,6 +16,7 @@
   },
   "require": {
     "php": "^8.2",
-    "ext-xmlwriter": "*"
+    "ext-xmlwriter": "*",
+    "cloud-castle/file-system": "^1.0.0.1"
   }
 }
