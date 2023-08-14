@@ -1,0 +1,21 @@
+{
+  "name": "cloud-castle/xml-service",
+  "description": "Библиотека для легкой генерации XML файлов",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Зорин Алексей Евгеньевич",
+      "email": "zorinalexey59292@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "CloudCastle\\Xml\\": "src/Xml/"
+    }
+  },
+  "require": {
+    "php": "^8.2",
+    "ext-xmlwriter": "*"
+  }
+}
