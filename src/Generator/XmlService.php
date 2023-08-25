@@ -42,13 +42,16 @@ final class XmlService implements XmlServiceInterface
         string|null $text = null,
         array|null  $attributes = null,
         string|null $comment = null,
-        bool        $close = true
+        bool        $close = true,
+        bool        $closeIfNull = false,
     ): self
     {
-        $this->startElement($name, $text, $attributes, $comment);
+        if($text === null && $closeIfNull){
+            $this->startElement($name, $text, $attributes, $comment);
 
-        if ($close) {
-            $this->closeElement();
+            if ($close) {
+                $this->closeElement();
+            }
         }
 
         return $this;
