@@ -39,10 +39,10 @@ interface XmlServiceInterface
      * @return $this
      */
     public function startElement(
-    string $name,
-    string|null $text = null,
-    array|null  $attributes = null,
-    string|null $comment = null
+        string      $name,
+        string|null $text = null,
+        array|null  $attributes = null,
+        string|null $comment = null
     ): self;
 
     /**

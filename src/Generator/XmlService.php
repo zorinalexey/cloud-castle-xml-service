@@ -46,26 +46,13 @@ final class XmlService implements XmlServiceInterface
         bool        $closeIfNull = false,
     ): self
     {
-        if($text === null && $closeIfNull){
+        if ($text === null && $closeIfNull) {
             $this->startElement($name, $text, $attributes, $comment);
 
             if ($close) {
                 $this->closeElement();
             }
         }
-
-        return $this;
-    }
-
-    /**
-     * @param string $comment
-     * @return $this
-     */
-    public function addComment(string $comment): self
-    {
-        $this->obj->startComment();
-        $this->obj->text($comment);
-        $this->obj->endComment();
 
         return $this;
     }
@@ -97,6 +84,19 @@ final class XmlService implements XmlServiceInterface
         if ($text) {
             $this->obj->text($text);
         }
+
+        return $this;
+    }
+
+    /**
+     * @param string $comment
+     * @return $this
+     */
+    public function addComment(string $comment): self
+    {
+        $this->obj->startComment();
+        $this->obj->text($comment);
+        $this->obj->endComment();
 
         return $this;
     }
@@ -153,7 +153,7 @@ final class XmlService implements XmlServiceInterface
             return Storage::disk($disk)->path($file);
         }
 
-        throw new XmlServiceException('Не удалось записать данные в файл "' . $file.'"');
+        throw new XmlServiceException('Не удалось записать данные в файл "' . $file . '"');
     }
 
     /**
