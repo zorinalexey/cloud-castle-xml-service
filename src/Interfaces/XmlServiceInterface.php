@@ -57,6 +57,7 @@ interface XmlServiceInterface
      * @param array|null $attributes
      * @param string|null $comment
      * @param bool $close
+     * @param bool $createIfTextNull
      * @return self
      */
     public function addElement(
@@ -64,7 +65,8 @@ interface XmlServiceInterface
         string|null $text = null,
         array|null  $attributes = null,
         string|null $comment = null,
-        bool        $close = true
+        bool        $close = true,
+        bool        $createIfTextNull = true
     ): self;
 
     /**

@@ -35,6 +35,7 @@ final class XmlService implements XmlServiceInterface
      * @param array|null $attributes
      * @param string|null $comment
      * @param bool $close
+     * @param bool $createIfTextNull
      * @return $this
      */
     public function addElement(
@@ -43,10 +44,10 @@ final class XmlService implements XmlServiceInterface
         array|null  $attributes = null,
         string|null $comment = null,
         bool        $close = true,
-        bool        $closeIfNull = false,
+        bool        $createIfTextNull = true
     ): self
     {
-        if ($text === null && $closeIfNull) {
+        if ($text === null && $createIfTextNull) {
             $this->startElement($name, $text, $attributes, $comment);
 
             if ($close) {
