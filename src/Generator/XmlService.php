@@ -44,10 +44,10 @@ final class XmlService implements XmlServiceInterface
         array|null  $attributes = null,
         string|null $comment = null,
         bool        $close = true,
-        bool        $createIfTextNull = true
+        bool        $createIfTextNull = false
     ): self
     {
-        if ($text === null && $createIfTextNull) {
+        if (($text === null && $createIfTextNull) || $text) {
             $this->startElement($name, $text, $attributes, $comment);
 
             if ($close) {
