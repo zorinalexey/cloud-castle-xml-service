@@ -33,14 +33,14 @@ interface XmlServiceInterface
 
     /**
      * @param string $name
-     * @param string|null $text
+     * @param string|int|bool|null $text
      * @param array|null $attributes
      * @param string|null $comment
      * @return $this
      */
     public function startElement(
         string      $name,
-        string|null $text = null,
+        string|int|bool|null  $text = null,
         array|null  $attributes = null,
         string|null $comment = null
     ): self;
@@ -53,7 +53,7 @@ interface XmlServiceInterface
 
     /**
      * @param string $name
-     * @param string|null $text
+     * @param string|int|bool|null  $text
      * @param array|null $attributes
      * @param string|null $comment
      * @param bool $close
@@ -62,7 +62,7 @@ interface XmlServiceInterface
      */
     public function addElement(
         string      $name,
-        string|null $text = null,
+        string|int|bool|null  $text = null,
         array|null  $attributes = null,
         string|null $comment = null,
         bool        $close = true,

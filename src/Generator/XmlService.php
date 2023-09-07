@@ -82,8 +82,10 @@ final class XmlService implements XmlServiceInterface
             $this->addAttributes($attributes);
         }
 
-        if ($text !== null) {
-            $this->obj->text((string)$text);
+        $text = (string)$text;
+
+        if (!empty($text)) {
+            $this->obj->text($text);
         }
 
         return $this;
