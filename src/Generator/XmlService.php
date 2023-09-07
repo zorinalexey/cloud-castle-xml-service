@@ -47,7 +47,8 @@ final class XmlService implements XmlServiceInterface
         bool        $createIfTextNull = false
     ): self
     {
-        if (($text === null && $createIfTextNull) || $text || ($text === null && $close === false)) {
+        $text = (string)$text;
+        if (($text === '' && $createIfTextNull) || $text || ($text === '' && $close === false)) {
             $this->startElement($name, $text, $attributes, $comment);
 
             if ($close) {
@@ -82,9 +83,7 @@ final class XmlService implements XmlServiceInterface
             $this->addAttributes($attributes);
         }
 
-        $text = (string)$text;
-
-        if (!empty($text)) {
+        if (($text = (string)$text) !== '') {
             $this->obj->text($text);
         }
 
