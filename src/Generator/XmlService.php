@@ -31,7 +31,7 @@ final class XmlService implements XmlServiceInterface
 
     /**
      * @param string $name
-     * @param string|null $text
+     * @param string|int|bool|null $text
      * @param array|null $attributes
      * @param string|null $comment
      * @param bool $close
@@ -40,7 +40,7 @@ final class XmlService implements XmlServiceInterface
      */
     public function addElement(
         string      $name,
-        string|null $text = null,
+        string|int|bool|null $text = null,
         array|null  $attributes = null,
         string|null $comment = null,
         bool        $close = true,
@@ -60,14 +60,14 @@ final class XmlService implements XmlServiceInterface
 
     /**
      * @param string $name
-     * @param string|null $text
+     * @param string|int|bool|null $text
      * @param array|null $attributes
      * @param string|null $comment
      * @return $this
      */
     public function startElement(
         string      $name,
-        string|null $text = null,
+        string|int|bool|null $text = null,
         array|null  $attributes = null,
         string|null $comment = null
     ): self
@@ -82,8 +82,8 @@ final class XmlService implements XmlServiceInterface
             $this->addAttributes($attributes);
         }
 
-        if ($text) {
-            $this->obj->text($text);
+        if ($text !== null) {
+            $this->obj->text((string)$text);
         }
 
         return $this;
