@@ -2,7 +2,7 @@
 
 namespace CloudCastle\Xml\Generator;
 
-use CloudCastle\Storage\DisksEnum;
+use CloudCastle\Storage\EDisks;
 use CloudCastle\Storage\Storage;
 use CloudCastle\Xml\Exceptions\Generator\XmlServiceException;
 use CloudCastle\Xml\Interfaces\XmlServiceInterface;
@@ -149,7 +149,7 @@ final class XmlService implements XmlServiceInterface
      */
     public function save(string $file): string
     {
-        $disk = DisksEnum::LOCAL;
+        $disk = EDisks::LOCAL;
 
         if (Storage::disk($disk)->put($file, $this->get())) {
             return Storage::disk($disk)->path($file);

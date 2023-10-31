@@ -17,6 +17,7 @@
   "require": {
     "php": ">=8.0",
     "ext-xmlwriter": "*",
-    "cloud-castle/storage": "^1.0.0.1"
+    "cloud-castle/storage": "^1.0.0.1",
+    "free2one/php-accessor": "~0.4"
   }
 }
